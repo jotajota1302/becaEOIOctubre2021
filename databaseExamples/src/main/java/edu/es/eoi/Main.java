@@ -1,40 +1,31 @@
 package edu.es.eoi;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		Connection con = null;
-						
-		try {
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/beca","root","root");
 			
-			Statement stm= con.createStatement();
+			EntityManagerFactory emf=Persistence.createEntityManagerFactory("MYDATABASE_PU");
+			EntityManager em=emf.createEntityManager();
 			
-			ResultSet rs=stm.executeQuery("SELECT nombre as TITULO from beca.pelicula");
-					
-			while(rs.next()) {
-				
-				System.out.println(rs.getString("TITULO"));
-				
-			}
+			Alumno alumno=em.find(Alumno.class,1);
 			
-		} catch (SQLException e) {
-		
-		}finally {
+			System.out.println(alumno.getApellidos());
+			System.out.println(alumno.getDni());
+	
+			Alumno newAlumno= new Alumno();
+			newAlumno.setApellidos("TEST");
 			
-			try {
-				con.close();
-			} catch (SQLException e) {			
-				e.printStackTrace();
-			}
-		}
+			em.getTransaction().begin();			
+			newAlumno=em.merge(newAlumno);
+			em.getTransaction().commit();
+			
+			em.getTransaction().begin();			
+			em.remove(newAlumno);
+			em.getTransaction().commit();
 		
 	}
 
