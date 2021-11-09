@@ -1,4 +1,4 @@
-package edu.es.eoi;
+package edu.es.eoi.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
