@@ -20,6 +20,11 @@ public class Main {
 			newAlumno.setApellidos("TEST");
 			
 			em.getTransaction().begin();			
+			em.persist(newAlumno);
+			em.getTransaction().commit();
+			
+			em.getTransaction().begin();	
+			newAlumno.setApellidos("modified");
 			newAlumno=em.merge(newAlumno);
 			em.getTransaction().commit();
 			
