@@ -6,13 +6,13 @@ import javax.persistence.Persistence;
 
 import edu.es.eoi.entity.Alumno;
 
-public class AlumnoRepositoryJPAImpl implements MyRepository<Alumno>{
+public class AlumnoRepositoryJPAImpl implements MyRepository<Alumno,Integer>{
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("ALUMNO_PU");
 	EntityManager em = emf.createEntityManager();
 
 	
-	public Alumno findById(int id) {
+	public Alumno findById(Integer id) {
 
 		return em.find(Alumno.class, id);
 
@@ -29,13 +29,13 @@ public class AlumnoRepositoryJPAImpl implements MyRepository<Alumno>{
 	public Alumno update(Alumno alumno) {
 
 		return em.merge(alumno);
-	}
+	}	
 
-	
-	public void remove(int id) {
 
-		em.remove(findById(id));
-
+	@Override
+	public void remove(Integer id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

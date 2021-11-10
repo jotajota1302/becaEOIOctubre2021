@@ -28,8 +28,8 @@ public class Banco {
 	@Column(name = "CIUDAD")
 	private String ciudad;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
-	private List<Cuenta> cuentas;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
+//	private List<Cuenta> cuentas;
 
 	
 		

@@ -25,13 +25,13 @@ public class Cuenta {
 	@Column(name = "SALDO")
 	private double saldo;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dni", referencedColumnName = "DNI")
-	private Cliente cliente;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDBANCO", referencedColumnName = "ID")
-	private Banco banco;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "dni", referencedColumnName = "DNI")
+//	private Cliente cliente;
+//
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "IDBANCO", referencedColumnName = "ID")
+//	private Banco banco;
 
 	
 

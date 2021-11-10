@@ -1,14 +1,14 @@
 package edu.es.eoi.repository;
 
-public interface MyRepository<E>{
+public interface MyRepository<E,PK>{
 	
-	E findById(int id);
+	E findById(PK id);
 	
-	void remove(int id);
+	void remove(PK id);
 	
-	E update(E entity);
+	E update(E e);
 	
-	void save(E entity);
+	void save(E e);
 	
 
 }
