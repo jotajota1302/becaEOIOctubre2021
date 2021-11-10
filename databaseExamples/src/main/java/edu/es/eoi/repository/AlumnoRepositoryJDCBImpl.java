@@ -8,9 +8,9 @@ import java.sql.SQLException;
 
 import edu.es.eoi.entity.Alumno;
 
-public class AlumnoRepositoryJDCBImpl implements AlumnoRepository {
+public class AlumnoRepositoryJDCBImpl  {
 
-	@Override
+	
 	public Alumno findById(int id) {
 
 		Alumno alumno = null;
@@ -28,6 +28,9 @@ public class AlumnoRepositoryJDCBImpl implements AlumnoRepository {
 				alumno = new Alumno();
 				alumno.setId(rs.getInt("id"));
 				alumno.setApellidos(rs.getString("apellidos"));
+				alumno.setEdad(rs.getDouble("edad"));
+				alumno.setNombre(rs.getString("nombre"));
+				alumno.setTelefono(rs.getString("telefono"));
 			}
 
 		} catch (SQLException e) {
@@ -45,21 +48,96 @@ public class AlumnoRepositoryJDCBImpl implements AlumnoRepository {
 
 	}
 
-	@Override
+	
 	public void save(Alumno alumno) {
+	
+		Connection con = null;
 
+		try {
+
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/beca?serverTimezone=UTC", "root", "root");
+			PreparedStatement pst=con.prepareStatement("INSERT INTO beca.alumno (apellidos, dni, edad, nombre, telefono) VALUES (?,?,?,?,?)");
+			
+			pst.setString(1, alumno.getApellidos());
+			pst.setString(2, alumno.getDni());
+			pst.setDouble(3, alumno.getEdad());
+			pst.setString(4, alumno.getNombre());
+			pst.setString(5, alumno.getTelefono());
+
+			pst.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {	
+				con.close();
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		}	
+		
 	}
 
-	@Override
+	
 	public Alumno update(Alumno alumno) {
 
-		return null;
+		Connection con = null;
 
+		try {
+
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/beca?serverTimezone=UTC", "root", "root");
+			PreparedStatement pst=con.prepareStatement("UPDATE beca.alumno wshere sdfhaosdhiaoushdoiauh");
+			
+			pst.setString(1, alumno.getApellidos());
+			pst.setString(2, alumno.getDni());
+			pst.setDouble(3, alumno.getEdad());
+			pst.setString(4, alumno.getNombre());
+			pst.setString(5, alumno.getTelefono());
+
+			pst.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {	
+				con.close();
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		}	
+
+		return alumno;
 	}
 
-	@Override
 	public void remove(int id) {
 
+		Connection con = null;
+
+		try {
+
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/beca?serverTimezone=UTC", "root", "root");
+			PreparedStatement pst=con.prepareStatement("DELETE FROM beca.alumno WHERE ID=?");			
+			pst.setInt(1, id);
+		
+
+			pst.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {	
+				con.close();
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		}	
+		
 	}
 
 }

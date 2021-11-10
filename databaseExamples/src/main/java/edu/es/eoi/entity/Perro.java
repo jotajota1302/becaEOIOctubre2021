@@ -14,27 +14,25 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@Table(name = "alumno", schema = "beca")
+@Table(name = "perro", schema = "beca")
 @ToString(exclude = "id")
-public class Alumno {
+public class Perro {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(name = "dni")
-	private String dni;
+	@Column
+	private String nombre;
 	
-	@Column(name = "apellidos")
-	private String apellidos;	
-	
-	@Column(name = "telefono")
-	private String telefono;	
-	
-	@Column(name = "edad")
-	private Double edad;	
-	
-	@Column(name = "nombre")
-	private String nombre;	
+	@Column
+	private String raza;
 
+	public Perro(String nombre, String raza) {
+		super();
+		this.nombre = nombre;
+		this.raza = raza;
+	}
+
+	
 }
