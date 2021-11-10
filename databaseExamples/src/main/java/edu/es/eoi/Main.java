@@ -1,7 +1,8 @@
 package edu.es.eoi;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import edu.es.eoi.entity.Alumno;
 import edu.es.eoi.entity.Perro;
@@ -24,9 +25,11 @@ public class Main {
 			System.out.println(al);		
 			
 //			repo.save(new Perro("Pancho","Caniche"));
-		
-		
 			
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("ALUMNO_PU");
+			EntityManager em = emf.createEntityManager();			
+			System.out.println(em.find(Alumno.class, 6).getApellidos());
+		
 	}
 
 }

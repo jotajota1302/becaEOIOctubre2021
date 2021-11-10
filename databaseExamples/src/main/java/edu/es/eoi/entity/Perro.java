@@ -34,5 +34,10 @@ public class Perro {
 		this.raza = raza;
 	}
 
+	public Perro() {
+		super();
+	}
+
+	
 	
 }
