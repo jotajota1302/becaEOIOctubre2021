@@ -38,7 +38,7 @@ public class Main {
 			List<Cuenta> cuentas=clienteRepository.findById("03765983S").getCuentas();			
 				
 			
-			
+			//hacer los puntos del ejercicio
 			
 	}
 
