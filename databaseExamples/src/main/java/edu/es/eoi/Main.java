@@ -40,6 +40,9 @@ public class Main {
 			
 			//hacer los puntos del ejercicio
 			
+			//crear 5 bancos
+			
+			
 	}
 
 }
