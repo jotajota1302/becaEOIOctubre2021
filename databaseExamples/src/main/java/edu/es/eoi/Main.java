@@ -1,17 +1,13 @@
 package edu.es.eoi;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import java.util.List;
 
-import edu.es.eoi.entity.Alumno;
+import edu.es.eoi.entity.Banco;
 import edu.es.eoi.entity.Cliente;
-import edu.es.eoi.entity.Perro;
-import edu.es.eoi.repository.AlumnoRepositoryJPAImpl;
+import edu.es.eoi.entity.Cuenta;
+import edu.es.eoi.repository.BancoRepositoryJPAImpl;
 import edu.es.eoi.repository.ClienteRepositoryJPAImpl;
-import edu.es.eoi.repository.MyAbstractRepository;
 import edu.es.eoi.repository.MyRepository;
-import edu.es.eoi.repository.PerroRepositoryJPAImpl;
 
 public class Main {
 
@@ -38,9 +34,11 @@ public class Main {
 //			System.out.println(em.find(Cliente.class, "03765983S").getNombre());
 		
 			MyRepository<Cliente, String> clienteRepository=new ClienteRepositoryJPAImpl();
+						
+			List<Cuenta> cuentas=clienteRepository.findById("03765983S").getCuentas();			
+				
 			
-			System.out.println(clienteRepository.findById("03765983S").getNombre());
-	
+			
 			
 	}
 

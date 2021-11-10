@@ -1,13 +1,13 @@
 package edu.es.eoi.entity;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.Persistence;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,8 +30,8 @@ public class Cliente {
 	@Column(name = "DIRECCION")
 	private String direccion;
 
-//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
-//	private List<Cuenta> cuentas;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+	private List<Cuenta> cuentas;
 	
 	
 }
