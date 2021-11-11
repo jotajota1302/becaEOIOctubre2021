@@ -1,5 +1,6 @@
 package edu.es.eoi;
 
+import edu.es.eoi.entity.Persona;
 import edu.es.eoi.entity.Subscripcion;
 import edu.es.eoi.repository.CategoriaRepositoryJPAImpl;
 import edu.es.eoi.repository.DireccionRepositoryJPAImpl;
@@ -25,6 +26,21 @@ public class Main {
 		SubscripcionRepositoryJPAImpl subscripcionRepositoryJPAImpl= new SubscripcionRepositoryJPAImpl();
 		
 		System.out.println(subscripcionRepositoryJPAImpl.findAll());
+		
+		Persona p= new Persona();
+		p.setNombre("JJ");
+		p.setMail("jj@gmail.com");
+		
+		Subscripcion s= new Subscripcion();
+		s.setTipo("PREMIUM");
+		
+		p.setSubscripcion(s);
+		s.setPersona(p);
+
+		personaRepositoryJPAImpl.save(p);
+		
+		personaRepositoryJPAImpl.remove(p.getId());
+		
 		
 	}
 

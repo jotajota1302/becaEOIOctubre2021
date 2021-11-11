@@ -37,10 +37,10 @@ public class Persona {
 	@JoinColumn(name = "subscripcion", referencedColumnName = "id")
 	private Subscripcion subscripcion;
 	
-	@OneToMany(mappedBy = "persona")
+	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
 	private List<Direccion> direcciones;
 		
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 	  name = "persona_categoria", 
 	  joinColumns = @JoinColumn(name = "persona"), 

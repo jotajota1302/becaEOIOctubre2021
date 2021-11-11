@@ -1,5 +1,6 @@
 package edu.es.eoi.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,7 +30,7 @@ public class Direccion {
 	@Column
 	private String codigopostal;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "persona", referencedColumnName = "id")
 	private Persona persona;
 	
