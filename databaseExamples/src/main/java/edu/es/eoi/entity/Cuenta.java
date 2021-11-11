@@ -29,7 +29,7 @@ public class Cuenta {
 	@JoinColumn(name = "dni", referencedColumnName = "DNI")
 	private Cliente cliente;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "IDBANCO", referencedColumnName = "ID")
 	private Banco banco;
 

@@ -2,6 +2,7 @@ package edu.es.eoi.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,9 +18,9 @@ import lombok.Setter;
 @Setter
 @Entity(name = "bancos")
 public class Banco {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name = "NOMBRE")
@@ -28,9 +29,10 @@ public class Banco {
 	@Column(name = "CIUDAD")
 	private String ciudad;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
+	@Column(name = "DIRECCION")
+	private String direccion;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco", cascade = CascadeType.ALL)
 	private List<Cuenta> cuentas;
 
-	
-		
 }

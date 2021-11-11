@@ -1,8 +1,11 @@
 package edu.es.eoi.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import edu.es.eoi.entity.Cliente;
 
@@ -48,6 +51,15 @@ public class ClienteRepositoryJPAImpl implements MyRepository<Cliente, String> {
 
 		em.getTransaction().commit();
 
+	}
+	
+	public List<Cliente> findAll(){
+		
+//		Query sqlQuery = em.createNativeQuery("SELECT * FROM CLIENTES");
+	    Query query = em.createQuery("FROM Cliente");
+		
+		return query.getResultList();
+		
 	}
 
 }
