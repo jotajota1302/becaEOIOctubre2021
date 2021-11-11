@@ -53,7 +53,8 @@ public class DireccionRepositoryJPAImpl implements MyRepository<Direccion, Strin
 
 	}
 	
-	public List<?> findAll(){
+	@SuppressWarnings("unchecked")
+	public List<Direccion> findAll(){
 		
 		String hql="from Direccion";
 		Query query = em.createQuery(hql);

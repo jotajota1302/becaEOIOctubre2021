@@ -53,7 +53,8 @@ public class PersonaRepositoryJPAImpl implements MyRepository<Persona, String> {
 
 	}
 	
-	public List<?> findAll(){
+	@SuppressWarnings("unchecked")
+	public List<Persona> findAll(){
 		
 		String hql="from Persona";
 		Query query = em.createQuery(hql);

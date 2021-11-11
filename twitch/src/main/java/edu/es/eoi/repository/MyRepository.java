@@ -1,5 +1,7 @@
 package edu.es.eoi.repository;
 
+import java.util.List;
+
 public interface MyRepository<E,PK>{
 	
 	E findById(PK id);
@@ -10,5 +12,6 @@ public interface MyRepository<E,PK>{
 	
 	void save(E e);
 	
-
+	List<E> findAll();
+	
 }

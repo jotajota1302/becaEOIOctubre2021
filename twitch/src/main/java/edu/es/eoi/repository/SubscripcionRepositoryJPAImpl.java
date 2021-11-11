@@ -53,7 +53,8 @@ public class SubscripcionRepositoryJPAImpl implements MyRepository<Subscripcion,
 
 	}
 	
-	public List<?> findAll(){
+	@SuppressWarnings("unchecked")
+	public List<Subscripcion> findAll(){
 		
 		String hql="from Subscripcion";
 		Query query = em.createQuery(hql);

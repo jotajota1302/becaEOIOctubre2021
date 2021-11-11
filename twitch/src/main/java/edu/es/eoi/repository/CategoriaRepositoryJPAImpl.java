@@ -53,7 +53,8 @@ public class CategoriaRepositoryJPAImpl implements MyRepository<Categoria, Strin
 
 	}
 	
-	public List<?> findAll(){
+	@SuppressWarnings("unchecked")
+	public List<Categoria> findAll(){
 		
 		String hql="from Categoria";
 		Query query = em.createQuery(hql);
