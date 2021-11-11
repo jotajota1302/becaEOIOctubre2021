@@ -9,19 +9,19 @@ import javax.persistence.Query;
 
 import edu.es.eoi.entity.Subscripcion;
 
-public class SubscripcionRepositoryJPAImpl implements MyRepository<Subscripcion, String> {
+public class SubscripcionRepositoryJPAImpl implements MyRepository<Subscripcion, Integer> {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("TWITCH_PU");
 	EntityManager em = emf.createEntityManager();
 
 	@Override
-	public Subscripcion findById(String id) {
+	public Subscripcion findById(Integer id) {
 
 		return em.find(Subscripcion.class, id);
 	}
 
 	@Override
-	public void remove(String id) {
+	public void remove(Integer id) {
 
 		em.getTransaction().begin();
 		

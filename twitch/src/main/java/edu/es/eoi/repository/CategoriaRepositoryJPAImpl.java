@@ -9,19 +9,19 @@ import javax.persistence.Query;
 
 import edu.es.eoi.entity.Categoria;
 
-public class CategoriaRepositoryJPAImpl implements MyRepository<Categoria, String> {
+public class CategoriaRepositoryJPAImpl implements MyRepository<Categoria, Integer> {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("TWITCH_PU");
 	EntityManager em = emf.createEntityManager();
 
 	@Override
-	public Categoria findById(String id) {
+	public Categoria findById(Integer id) {
 
 		return em.find(Categoria.class, id);
 	}
 
 	@Override
-	public void remove(String id) {
+	public void remove(Integer id) {
 
 		em.getTransaction().begin();
 		

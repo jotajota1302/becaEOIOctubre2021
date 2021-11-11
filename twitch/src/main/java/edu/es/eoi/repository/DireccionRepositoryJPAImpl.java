@@ -9,19 +9,19 @@ import javax.persistence.Query;
 
 import edu.es.eoi.entity.Direccion;
 
-public class DireccionRepositoryJPAImpl implements MyRepository<Direccion, String> {
+public class DireccionRepositoryJPAImpl implements MyRepository<Direccion, Integer> {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("TWITCH_PU");
 	EntityManager em = emf.createEntityManager();
 
 	@Override
-	public Direccion findById(String id) {
+	public Direccion findById(Integer id) {
 
 		return em.find(Direccion.class, id);
 	}
 
 	@Override
-	public void remove(String id) {
+	public void remove(Integer id) {
 
 		em.getTransaction().begin();
 		

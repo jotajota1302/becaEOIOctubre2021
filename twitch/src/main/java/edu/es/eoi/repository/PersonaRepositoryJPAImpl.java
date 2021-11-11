@@ -9,19 +9,19 @@ import javax.persistence.Query;
 
 import edu.es.eoi.entity.Persona;
 
-public class PersonaRepositoryJPAImpl implements MyRepository<Persona, String> {
+public class PersonaRepositoryJPAImpl implements MyRepository<Persona, Integer> {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("TWITCH_PU");
 	EntityManager em = emf.createEntityManager();
 
 	@Override
-	public Persona findById(String id) {
+	public Persona findById(Integer id) {
 
 		return em.find(Persona.class, id);
 	}
 
 	@Override
-	public void remove(String id) {
+	public void remove(Integer id) {
 
 		em.getTransaction().begin();
 		
