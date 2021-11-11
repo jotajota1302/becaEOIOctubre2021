@@ -13,19 +13,19 @@ public class Main {
 		
 		PersonaRepositoryJPAImpl personaRepositoryJPAImpl=new PersonaRepositoryJPAImpl();
 		
-		System.out.println(personaRepositoryJPAImpl.findAll());
+//		System.out.println(personaRepositoryJPAImpl.findAll());
 		
 		DireccionRepositoryJPAImpl direccionRepositoryJPAImpl= new DireccionRepositoryJPAImpl();
 	
-		System.out.println(direccionRepositoryJPAImpl.findAll());
+//		System.out.println(direccionRepositoryJPAImpl.findAll());
 		
 		CategoriaRepositoryJPAImpl categoriaRepositoryJPAImpl= new CategoriaRepositoryJPAImpl();
 		
-		System.out.println(categoriaRepositoryJPAImpl.findAll());
+//		System.out.println(categoriaRepositoryJPAImpl.findAll());
 		
 		SubscripcionRepositoryJPAImpl subscripcionRepositoryJPAImpl= new SubscripcionRepositoryJPAImpl();
 		
-		System.out.println(subscripcionRepositoryJPAImpl.findAll());
+//		System.out.println(subscripcionRepositoryJPAImpl.findAll());
 		
 		Persona p= new Persona();
 		p.setNombre("JJ");
