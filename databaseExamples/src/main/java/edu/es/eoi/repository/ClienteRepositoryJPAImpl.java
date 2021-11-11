@@ -55,7 +55,7 @@ public class ClienteRepositoryJPAImpl implements MyRepository<Cliente, String> {
 	
 	public List<?> findAll(){
 		
-//		Query sqlQuery = em.createNativeQuery("SELECT * FROM CLIENTES");
+//		Query query = em.createNativeQuery("SELECT * FROM CLIENTES");
 		String hql="from Cliente";
 		Query query = em.createQuery(hql);
 		
