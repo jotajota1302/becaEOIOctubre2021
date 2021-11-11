@@ -7,6 +7,7 @@ import edu.es.eoi.entity.Cliente;
 import edu.es.eoi.entity.Cuenta;
 import edu.es.eoi.repository.BancoRepositoryJPAImpl;
 import edu.es.eoi.repository.ClienteRepositoryJPAImpl;
+import edu.es.eoi.repository.CuentaRepositoryJPAImpl;
 import edu.es.eoi.repository.MyRepository;
 
 public class Main {
@@ -108,8 +109,26 @@ public class Main {
 				banco.getCuentas().add(cuenta);
 			}
 			
-			clienteRepository.save(cliente);
+//			clienteRepository.save(cliente);
 			
+			CuentaRepositoryJPAImpl cuentaRepositoryJPAImpl= new CuentaRepositoryJPAImpl();
+			
+			Cuenta temp=cuentaRepositoryJPAImpl.findById(22);
+			
+			temp.getBanco().setDireccion("ADRESS UPDATED");
+			
+			cuentaRepositoryJPAImpl.save(temp);
+			
+			//cuentas por banco
+			
+			BancoRepositoryJPAImpl bancoRepositoryJPAImpl= new BancoRepositoryJPAImpl();
+			banco=bancoRepositoryJPAImpl.findById(1);
+			
+			for (Cuenta c : banco.getCuentas()) {
+				System.out.println(c.getCliente().getDni());
+			}	
+		
+			clienteRepository.findAll();
 	}
 
 }
