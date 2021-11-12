@@ -1,10 +1,7 @@
 package edu.es.eoi;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import edu.es.eoi.entity.Categoria;
@@ -13,8 +10,10 @@ import edu.es.eoi.entity.Persona;
 import edu.es.eoi.entity.Subscripcion;
 import edu.es.eoi.repository.CategoriaRepositoryJPAImpl;
 import edu.es.eoi.repository.DireccionRepositoryJPAImpl;
+import edu.es.eoi.repository.MyRepository;
 import edu.es.eoi.repository.PersonaRepositoryJPAImpl;
 import edu.es.eoi.repository.SubscripcionRepositoryJPAImpl;
+import edu.es.eoi.view.MenuView;
 
 public class Main {
 
@@ -72,7 +71,7 @@ public class Main {
 		categoria1.getPersonas().add(p);
 		
 		Categoria categoria2= new Categoria();
-		categoria2.setNombre("COMEDIA");
+		categoria2.setNombre("ACCION");
 		categoria2.setPersonas(new HashSet<>());
 		categoria2.getPersonas().add(p);			
 		
@@ -84,9 +83,13 @@ public class Main {
 		p.setCategorias(lista);
 		
 		personaRepositoryJPAImpl.save(p);
+
+		MenuView.printMainMenu();		
 		
 		personaRepositoryJPAImpl.remove(p.getId());
 		
+		
+
 		
 	}
 
