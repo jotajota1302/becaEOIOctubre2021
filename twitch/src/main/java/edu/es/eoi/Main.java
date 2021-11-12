@@ -1,7 +1,13 @@
 package edu.es.eoi;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import edu.es.eoi.entity.Categoria;
 import edu.es.eoi.entity.Direccion;
 import edu.es.eoi.entity.Persona;
 import edu.es.eoi.entity.Subscripcion;
@@ -59,6 +65,23 @@ public class Main {
 		p.getDirecciones().add(direccion2);
 		
 		//N:N igual pero con 2 set en cada lado	
+		
+		Categoria categoria1= new Categoria();
+		categoria1.setNombre("ACCION");
+		categoria1.setPersonas(new HashSet<>());
+		categoria1.getPersonas().add(p);
+		
+		Categoria categoria2= new Categoria();
+		categoria2.setNombre("COMEDIA");
+		categoria2.setPersonas(new HashSet<>());
+		categoria2.getPersonas().add(p);			
+		
+		Set<Categoria> lista= new HashSet<>();
+		
+		lista.add(categoria1);
+		lista.add(categoria2);
+		
+		p.setCategorias(lista);
 		
 		personaRepositoryJPAImpl.save(p);
 		
