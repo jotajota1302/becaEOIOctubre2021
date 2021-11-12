@@ -1,12 +1,13 @@
 
 
 import java.io.IOException;
-import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import edu.es.eoi.repository.PersonaRepositoryJPAImpl;
 
 @SuppressWarnings("serial")
 public class MiPrimerServlet extends HttpServlet{
@@ -16,7 +17,9 @@ public class MiPrimerServlet extends HttpServlet{
 				
 		System.out.println("Has llamado a mi servlet desde :" + req.getLocalAddr());
 		
-		resp.getWriter().print("<h1> +"+Calendar.getInstance().get(Calendar.SECOND) +"</h1>");
+		PersonaRepositoryJPAImpl repo= new PersonaRepositoryJPAImpl();
+		
+		resp.getWriter().print(repo.findById(Integer.valueOf(req.getParameter("id"))).getMail());
 	
 	}
 	
