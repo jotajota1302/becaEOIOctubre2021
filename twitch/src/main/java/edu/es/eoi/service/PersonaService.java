@@ -5,9 +5,9 @@ import edu.es.eoi.repository.PersonaRepositoryJPAImpl;
 
 public class PersonaService {
 	
+	PersonaRepositoryJPAImpl repo= new PersonaRepositoryJPAImpl();
+	
 	public Persona getPersona(int id) {
-		
-		PersonaRepositoryJPAImpl repo= new PersonaRepositoryJPAImpl();
 		
 		return repo.findById(id);
 		
