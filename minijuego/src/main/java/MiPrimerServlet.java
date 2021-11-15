@@ -23,8 +23,5 @@ public class MiPrimerServlet extends HttpServlet{
 	
 	}
 	
-	
-	
-	
 
 }
