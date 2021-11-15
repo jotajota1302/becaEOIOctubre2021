@@ -1,27 +1,25 @@
 package edu.es.eoi.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import edu.es.eoi.domain.MyRepository;
-import edu.es.eoi.domain.MyService;
-
 @Configuration
+@ComponentScan(basePackages = "edu.es.eoi")
 public class SpringConfig {
 	
-	@Bean
-	public MyService getService() {
-		
-		return new MyService(getRepo());
-		
-	}
-		
-	@Bean
-	public MyRepository getRepo() {
-		
-		return new MyRepository();
-		
-	}
+//	@Bean
+//	public MyService getService() {
+//		
+//		return new MyService(getRepo());
+//		
+//	}
+//		
+//	@Bean
+//	public MyRepository getRepo() {
+//		
+//		return new MyRepository();
+//		
+//	}
 	
 
 }

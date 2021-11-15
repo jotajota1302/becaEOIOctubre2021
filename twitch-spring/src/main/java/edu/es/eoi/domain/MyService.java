@@ -1,18 +1,13 @@
 package edu.es.eoi.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Getter
-@Setter
+@Service
 public class MyService {
 	
+	@Autowired
 	MyRepository repo;
-	
-	public MyService(MyRepository repo) {
-		
-		this.repo=repo;
-	}
 	
 	public void doSomething() {
 		
