@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import edu.es.eoi.config.SpringConfig;
+import edu.es.eoi.controller.AlumnoController;
 import edu.es.eoi.domain.MyRepository;
 import edu.es.eoi.domain.MyService;
 
@@ -13,13 +14,18 @@ public class Main {
 	
 	public static void main(String[] args) {
 								
-		MyService service = context.getBean(MyService.class);
+//		MyService service = context.getBean(MyService.class);
+//		
+//		service.doSomething();
+//		
+//		MyRepository repo=context.getBean(MyRepository.class);
+//		
+//		repo.getSomething();		
 		
-		service.doSomething();
+		AlumnoController controller=context.getBean(AlumnoController.class);
 		
-		MyRepository repo=context.getBean(MyRepository.class);
-		
-		repo.getSomething();		
+		controller.doSomething();
+			
 	
 	}
 
