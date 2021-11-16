@@ -84,9 +84,9 @@ public class Main {
 		
 		personaRepositoryJPAImpl.save(p);
 
-		MenuView.printMainMenu();		
+//		MenuView.printMainMenu();		
 		
-		personaRepositoryJPAImpl.remove(p.getId());
+//		personaRepositoryJPAImpl.remove(p.getId());
 		
 		
 

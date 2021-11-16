@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class TwitchSpringbootDataApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TwitchSpringbootDataApplication.class, args);		
+		SpringApplication.run(TwitchSpringbootDataApplication.class, args);			
 	}
 
 }
