@@ -8,4 +8,6 @@ import edu.es.eoi.entity.Entidad1;
 @Repository
 public interface Entidad1Repository extends JpaRepository<Entidad1, Integer> {
 
+	public Entidad1 findByCampo(String campo);
+	
 }
