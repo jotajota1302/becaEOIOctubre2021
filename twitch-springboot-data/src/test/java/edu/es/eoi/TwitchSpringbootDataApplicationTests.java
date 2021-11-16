@@ -30,7 +30,7 @@ class TwitchSpringbootDataApplicationTests {
 		entity1.getEntidad2().add(entity2);
 		entity2.setEntidad1(entity1);
 
-//		repo.save(entity1);
+		repo.save(entity1);
 		
 		repo.findById(1);
 		
