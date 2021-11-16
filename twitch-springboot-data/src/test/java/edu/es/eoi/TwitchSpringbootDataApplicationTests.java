@@ -34,6 +34,9 @@ class TwitchSpringbootDataApplicationTests {
 					
 		Assertions.assertEquals("entidad 1", repo.findById(entity1.getId()).get().getCampo());
 		Assertions.assertEquals("entidad 1", repo.findByCampo("entidad 1").getCampo());
+		
+		
+	
 	}
 
 }

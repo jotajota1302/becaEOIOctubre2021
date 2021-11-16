@@ -26,5 +26,5 @@ public class Entidad1 {
 	
 	@OneToMany(targetEntity = Entidad2.class, cascade = CascadeType.ALL)
 	private List<Entidad2> entidad2;
-	
+		
 }
