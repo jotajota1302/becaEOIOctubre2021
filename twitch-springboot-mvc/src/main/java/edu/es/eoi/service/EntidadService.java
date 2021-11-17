@@ -25,4 +25,15 @@ public class EntidadService {
 		return dto;
 	}
 	
+	public EntidadDto save(EntidadDto dto) {
+		
+		Entidad1 entity = new Entidad1();
+		entity.setCampo(dto.getCampo());
+	
+		repo.save(entity);
+				
+		return dto;
+	}
+	
+	
 }
