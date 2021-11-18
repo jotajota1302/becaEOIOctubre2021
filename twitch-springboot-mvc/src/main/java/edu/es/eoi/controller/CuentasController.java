@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.es.eoi.dto.BancoDto;
-import edu.es.eoi.dto.ClienteDto;
 import edu.es.eoi.dto.CuentaDto;
 import edu.es.eoi.service.BancoServiceImpl;
 import edu.es.eoi.service.ClienteServiceImpl;
@@ -57,11 +55,7 @@ public class CuentasController {
 	
 	@PostMapping
 	public ResponseEntity<String> createOne(@RequestBody CuentaDto dto) {
-		
-		BancoDto banco=bancoService.find(Integer.valueOf(dto.getBanco()));
-		
-		ClienteDto cliente=clienteService.find(dto.getDni());
-		
+			
 		service.save(dto);
 		
 		return new ResponseEntity<String>(HttpStatus.CREATED);
