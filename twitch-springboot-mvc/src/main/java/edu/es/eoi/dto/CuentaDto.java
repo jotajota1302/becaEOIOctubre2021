@@ -7,10 +7,12 @@ import lombok.Setter;
 @Setter
 public class CuentaDto {
 
+	private int id;
+	
 	private double saldo;
 
-	private ClienteDto cliente;
+	private String dni;
 
-	private BancoDto banco;
+	private String banco;
 	
 }

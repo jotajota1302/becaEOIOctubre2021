@@ -1,7 +1,6 @@
 package edu.es.eoi.dto;
 
 import java.sql.Date;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +23,5 @@ public class ClienteDto {
 	
 	private String direccion;
 	
-	private List<CuentaDto> cuentas;
 
 }
