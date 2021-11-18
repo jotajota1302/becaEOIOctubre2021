@@ -17,7 +17,7 @@ public class ClienteServiceImpl {
 	@Autowired
 	ClienteRepository repo;
 	
-	public ClienteDto findCliente(String id) {
+	public ClienteDto find(String id) {
 		
 		Cliente c=repo.findById(id).get();
 		
@@ -46,7 +46,7 @@ public class ClienteServiceImpl {
 		
 	}
 
-	public void saveCliente(ClienteDto dto) {
+	public void save(ClienteDto dto) {
 		
 		Cliente entity=new Cliente();			
 		BeanUtils.copyProperties(dto, entity);

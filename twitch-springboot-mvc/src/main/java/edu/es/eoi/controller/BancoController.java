@@ -14,32 +14,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.es.eoi.dto.ClienteDto;
-import edu.es.eoi.service.ClienteServiceImpl;
+import edu.es.eoi.dto.BancoDto;
+import edu.es.eoi.service.BancoServiceImpl;
 
 @RestController
-@RequestMapping(value = "/clientes")
-public class ClienteController {
+@RequestMapping(value = "/bancos")
+public class BancoController {
 		
 	@Autowired
-	ClienteServiceImpl service;
+	BancoServiceImpl service;
 	
 	@GetMapping("/{id}")	
-	public ResponseEntity<ClienteDto> getOne(@PathVariable String id) {
+	public ResponseEntity<BancoDto> getOne(@PathVariable Integer id) {
 
-		return new ResponseEntity<ClienteDto>(service.find(id), HttpStatus.OK);
+		return new ResponseEntity<BancoDto>(service.find(id), HttpStatus.OK);
 		
 	}
 	
 	@GetMapping	
-	public ResponseEntity<List<ClienteDto>> getAll() {
+	public ResponseEntity<List<BancoDto>> getAll() {
 		
-		return new ResponseEntity<List<ClienteDto>>(service.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<BancoDto>>(service.findAll(), HttpStatus.OK);
 		
 	}
 	
 	@PostMapping
-	public ResponseEntity<String> createOne(@RequestBody ClienteDto dto) {
+	public ResponseEntity<String> createOne(@RequestBody BancoDto dto) {
 		
 		service.save(dto);
 		
@@ -48,9 +48,9 @@ public class ClienteController {
 	}
 	
 	@PutMapping("/{dni}")
-	public ResponseEntity<String> updateOne(@RequestBody ClienteDto dto, @PathVariable String dni) {
+	public ResponseEntity<String> updateOne(@RequestBody BancoDto dto, @PathVariable Integer id) {
 		
-		if(dni.equals(dto.getDni())&&service.find(dni)!=null) {
+		if(id.equals(dto.getId())&&service.find(id)!=null) {
 			
 			service.save(dto);
 			
@@ -65,7 +65,7 @@ public class ClienteController {
 	}
 	
 	@DeleteMapping("/{id}")	
-	public ResponseEntity<String> deleteOne(@PathVariable String id) {
+	public ResponseEntity<String> deleteOne(@PathVariable Integer id) {
 
 		service.delete(id);
 		
