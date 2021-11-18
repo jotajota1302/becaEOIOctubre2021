@@ -1,7 +1,5 @@
 package edu.es.eoi.dto;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +14,7 @@ public class BancoDto {
 
 	private String ciudad;
 
-	private List<CuentaDto> cuentas;
+
 
 	
 		
