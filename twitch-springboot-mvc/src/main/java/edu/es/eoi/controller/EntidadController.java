@@ -23,7 +23,20 @@ public class EntidadController {
 	@GetMapping("/{id}")	
 	public ResponseEntity<EntidadDto> getEntity(@PathVariable Integer id) {
 
-		return new ResponseEntity<EntidadDto>(service.findEntidad(id), HttpStatus.OK);
+		EntidadDto dto;
+		
+		try {
+			
+			dto=service.findEntidad(id);
+		
+			return new ResponseEntity<EntidadDto>(dto, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}		
+	
 		
 	}
 	

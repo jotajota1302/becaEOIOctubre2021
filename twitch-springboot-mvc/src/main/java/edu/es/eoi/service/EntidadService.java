@@ -13,7 +13,7 @@ public class EntidadService {
 	@Autowired
 	Entidad1Repository repo;
 	
-	public EntidadDto findEntidad(int id) {
+	public EntidadDto findEntidad(int id) throws Exception {
 		
 		Entidad1 entity = repo.findById(id).get();
 	
