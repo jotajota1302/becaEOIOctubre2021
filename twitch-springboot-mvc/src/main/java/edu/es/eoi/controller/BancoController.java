@@ -32,7 +32,7 @@ public class BancoController {
 		
 	}
 	
-	@GetMapping	
+	@GetMapping
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<List<BancoDto>> getAll() {
 		
@@ -49,7 +49,7 @@ public class BancoController {
 		
 	}
 	
-	@PutMapping("/{dni}")
+	@PutMapping("/{id}")
 	public ResponseEntity<String> updateOne(@RequestBody BancoDto dto, @PathVariable Integer id) {
 		
 		if(id.equals(dto.getId())&&service.find(id)!=null) {
@@ -67,7 +67,6 @@ public class BancoController {
 	}
 	
 	@DeleteMapping("/{id}")	
-	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> deleteOne(@PathVariable Integer id) {
 
 		service.delete(id);
@@ -76,8 +75,7 @@ public class BancoController {
 		
 	}
 	
-	@DeleteMapping()	
-	@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping()
 	public ResponseEntity<String> deleteAll() {
 
 		service.deleteAll();
